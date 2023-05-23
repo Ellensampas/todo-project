@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
-  // const history = useHistory();
+  const history = useHistory();
   const [login, setLogin] = useState({ email: "", password: "" });
   const [isDisabled, setIsDisabled] = useState(true);
 
@@ -18,10 +18,10 @@ export default function Login() {
     }
   };
 
-  // const handleSubmit = () => {
-  //   localStorage.setItem('user', JSON.stringify({ email: login.email }));
-  //   history.push('/meals');
-  // };
+  const handleSubmit = () => {
+    localStorage.setItem('user', JSON.stringify({ email: login.email }));
+    history.push('/daylist');
+  };
 
   return (
     <form>
@@ -59,7 +59,7 @@ export default function Login() {
         type="button"
         data-testid="login-submit-btn"
         disabled={isDisabled}
-        // onClick={ handleSubmit }
+        onClick={ handleSubmit }
       >
         Enter
       </button>
